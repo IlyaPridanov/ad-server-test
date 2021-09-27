@@ -1,0 +1,54 @@
+include pug/mixin.pug
+
+-
+    var arrImg = [
+        "img/tumblr.png",
+        "img/g-plus.png",
+        "img/twitter.png",
+        "img/rss.png",
+        "img/facebook.png",
+    ]
+
+doctype html
+html(lang="ru")
+    head
+        block head
+            meta(charset="utf-8")
+            meta(content="width=device-width, initial-scale=1" name="viewport")
+            meta(name="description" content="Lorem ipsum dolor sit amet, consectetuer adipiscing elit.")
+            title ad-server-test
+            <link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+            link(rel="icon" type="image/x-icon" href="favicon.ico")
+            link(rel="stylesheet" href="css/style.min.css")
+    body
+        <div style="display:none">
+            <include src="build/img/icons/sprite.svg"></include>
+        </div>
+        header.header
+            .container.header__row
+                .header__logo
+                    img(src="img/logo.png", alt="logo", width="91", height="61")
+                    span Unlimited Streaming
+                nav.header__nav
+                    ul.header__list
+                        each src in arrImg
+                            li.header__item
+                                a.header__link(aria-label="social")
+                                    img(src=src, alt="social-img", width="65", height="65")
+        main.main
+            .container.main__container
+                h1.main__caption Original series, all-time favorite TV shows, hit movies, kids programming, and more!
+                <video id="my-video" class="video-js main__video" controls preload="auto" width="640" height="500" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                <source src="video/video0.mp4" type="video/mp4" />
+                <p class="vjs-no-js">
+                    |To view this video please enable JavaScript, and consider upgrading to a
+                    |web browser that
+                    <a href="https://videojs.com/html5-video-support/" target="_blank" >supports HTML5 video</a>
+                </p>
+                </video>
+                //- button.stop(type="button")
+        footer.footer
+            .container
+                p.footer__copy &copy; Copyright 2021
+        <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+        script(src='js/script.js')

@@ -29,11 +29,8 @@
     </header>
     <main class="main">
       <div class="container main__container">
-        <h1 class="main__caption">Original series, all-time favorite TV shows, hit movies, kids programming, and more!</h1><video id="my-video" class="video-js main__video" controls="" preload="auto" width="640" height="500" poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+        <h1 class="main__caption">Original series, all-time favorite TV shows, hit movies, kids programming, and more!</h1><video id="my-video" class="video-js main__video" controls="" preload="auto" width="640" height="500" data-setup="{}">
 <source src="video/video0.mp4" type="video/mp4">
-<p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a
-        web browser that<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-</p>
 </video>
       </div>
     </main>
@@ -42,10 +39,10 @@
         <p class="footer__copy">&copy; Copyright 2021</p>
       </div>
     </footer>
-    <div class="popup">
+    <div class="popup inactive">
       <form class="popup__form" action="#">
         <p class="popup__text">Для продолжения просмотра нужно пройти регистрацию</p>
-        <input class="popup__input" type="email" placeholder="Ваш email">
+        <input class="popup__input" type="email" placeholder="Ваш email" required="">
         <button class="popup__btn" type="submit">Play!</button>
       </form>
     </div><script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>

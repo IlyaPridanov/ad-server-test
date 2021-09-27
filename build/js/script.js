@@ -5,11 +5,25 @@
 (function () {
   var player = videojs('my-video');
   var stop = document.querySelector('.stop');
-  console.log(player);
-  stop.addEventListener('click', function () {
-    player.pause();
+  var popup = document.querySelector('.popup');
+  var form = document.querySelector('.popup__form');
+  var input = document.querySelector('.popup__input');
+  var flag = true;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (input.checkValidity()) {
+      player.play();
+      popup.classList.add('inactive');
+    }
   });
-  setTimeout(function () {
-    player.pause();
-  }, 5000);
+  player.on('play', function () {
+    if (flag) {
+      setTimeout(function () {
+        player.pause();
+        popup.classList.remove('inactive');
+      }, 5000);
+      flag = false;
+    }
+  });
 })();

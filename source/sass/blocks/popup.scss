@@ -9,6 +9,13 @@
     @include center();
 
     background-color: rgba(0,0,0,0.6);
+
+    transition: all 0.5s ease-in;
+
+    &.inactive {
+        left: -150%;
+        transition: all 0.5s ease-in;
+    }
 }
 
 .popup__form {

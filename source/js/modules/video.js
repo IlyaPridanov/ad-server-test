@@ -3,12 +3,28 @@
 (function () {
     const player = videojs('my-video');
     const stop = document.querySelector('.stop');
-    console.log(player);
-    stop.addEventListener('click',function(){
-        player.pause();
+    const popup = document.querySelector('.popup');
+    const form = document.querySelector('.popup__form');
+    const input = document.querySelector('.popup__input');
+
+    let flag = true;
+
+    form.addEventListener('submit',function(e) {
+        e.preventDefault();
+        if (input.checkValidity()) {
+            player.play();
+            popup.classList.add('inactive');
+        }
     })
-    setTimeout(function(){
-        player.pause();
-    } , 5000);
+
+    player.on('play', function() {
+        if (flag) {
+            setTimeout(function(){
+                player.pause();
+                popup.classList.remove('inactive');
+            } , 5000);
+            flag = false;
+        }
+    });
 })();
 

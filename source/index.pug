@@ -50,5 +50,10 @@ html(lang="ru")
         footer.footer
             .container
                 p.footer__copy &copy; Copyright 2021
+        .popup
+            form.popup__form(action="#")
+                p.popup__text Для продолжения просмотра нужно пройти регистрацию
+                input.popup__input(type="email",placeholder="Ваш email")
+                button.popup__btn(type="submit") Play!
         <script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
         script(src='js/script.js')
